@@ -11,6 +11,9 @@
 	const grid = document.getElementById('projectsGrid');
 	const modalBackdrop = document.getElementById('kpModalBackdrop');
 	const closeModalBtn = document.getElementById('kpCloseModalBtn');
+	const prevModalBtn = document.getElementById('kpModalPrev');
+	const nextModalBtn = document.getElementById('kpModalNext');
+	let currentIndex = -1;
 
 	function createCard(p){
 		const el = document.createElement('div');
@@ -59,8 +62,7 @@
 		projects.forEach(p => { grid.appendChild(createCard(p)); });
 	}
 
-	function openModal(id){
-		const p = projects.find(x => x.id === id);
+	function renderModal(p){
 		if(!p) return;
 		document.getElementById('kpModalTitle').textContent = p.title;
 		document.getElementById('kpModalHero').style.backgroundImage = `url("${p.image}")`;
@@ -89,7 +91,13 @@
 		} else {
 			linksArea.textContent = '—';
 		}
+	}
 
+	function openModal(id){
+		const idx = projects.findIndex(x => x.id === id);
+		if(idx === -1) return;
+		currentIndex = idx;
+		renderModal(projects[currentIndex]);
 		modalBackdrop.classList.add('show');
 		modalBackdrop.setAttribute('aria-hidden','false');
 		document.body.style.overflow = 'hidden';
@@ -100,11 +108,35 @@
 		modalBackdrop.classList.remove('show');
 		modalBackdrop.setAttribute('aria-hidden','true');
 		document.body.style.overflow = '';
+		currentIndex = -1;
 	}
 
 	modalBackdrop.addEventListener('click', (e)=>{ if(e.target === modalBackdrop) closeModal(); });
 	closeModalBtn.addEventListener('click', closeModal);
-	document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') closeModal(); });
+	document.addEventListener('keydown', (e)=> {
+		if(e.key === 'Escape') closeModal();
+		if(modalBackdrop.classList.contains('show')){
+			if(e.key === 'ArrowLeft'){
+				e.preventDefault();
+				if(currentIndex !== -1){ currentIndex = (currentIndex - 1 + projects.length) % projects.length; renderModal(projects[currentIndex]); }
+			}
+			if(e.key === 'ArrowRight'){
+				e.preventDefault();
+				if(currentIndex !== -1){ currentIndex = (currentIndex + 1) % projects.length; renderModal(projects[currentIndex]); }
+			}
+		}
+	});
+
+	if(prevModalBtn) prevModalBtn.addEventListener('click', ()=>{
+		if(currentIndex === -1) return;
+		currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+		renderModal(projects[currentIndex]);
+	});
+	if(nextModalBtn) nextModalBtn.addEventListener('click', ()=>{
+		if(currentIndex === -1) return;
+		currentIndex = (currentIndex + 1) % projects.length;
+		renderModal(projects[currentIndex]);
+	});
 
 	renderGrid();
 })();
