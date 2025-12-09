@@ -4,7 +4,6 @@
 		{ name: 'Albert Nhat-anh Tran - Professional Scrum Master', avatar: 'ab_files/images/users/AnhTran.jpeg', quote: 'Khoa is someone who is very dedicated to his work and willing to help others.', link: 'https://www.linkedin.com/in/albert-nhatanh-tran/' },
 		{ name: 'KOJI SUGANO - ラクスル （ダンボールワン事業）', avatar: 'ab_files/images/users/KOJI.jpeg', quote: 'He works hard, is serious, is very aware of etiquette and polite.', link: 'https://www.linkedin.com/in/kojisugano/' },
 		{ name: 'Keiran James - Co-founder at Business Sales Platform', avatar: 'ab_files/images/users/Keiran.png', quote: 'Khoa is a great developer & problem solver and has been a great asset to our team.', link: 'https://www.linkedin.com/in/keiran-james-/' },
-		// { name: 'Duc Vu - CTO & Co-Founder', avatar: 'ab_files/images/users/DucVu.png', quote: 'Easy to work with and highly reliable.', link: 'https://www.linkedin.com/in/tuanducvu/' },
 	];
 
 	const track = document.getElementById('cfTrack');
