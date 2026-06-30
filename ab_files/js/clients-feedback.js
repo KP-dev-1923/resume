@@ -1,7 +1,6 @@
 (function(){
 	const feedbacks = [
 		{ name: 'Henry de Waziers - Senior Project Manager', avatar: 'ab_files/images/users/Henry.jpeg', quote: 'At Fidesio, We worked together on several projects. Khoa was a great asset to the team. He is a very talented developer and a great team leader.', link: 'https://www.linkedin.com/in/henry-de-waziers-868aa099/' },
-		{ name: 'Albert Nhat-anh Tran - Professional Scrum Master', avatar: 'ab_files/images/users/AnhTran.jpeg', quote: 'Khoa is someone who is very dedicated to his work and willing to help others.', link: 'https://www.linkedin.com/in/albert-nhatanh-tran/' },
 		{ name: 'KOJI SUGANO - ラクスル （ダンボールワン事業）', avatar: 'ab_files/images/users/KOJI.jpeg', quote: 'He works hard, is serious, is very aware of etiquette and polite.', link: 'https://www.linkedin.com/in/kojisugano/' },
 		{ name: 'Keiran James - Co-founder at Business Sales Platform', avatar: 'ab_files/images/users/Keiran.png', quote: 'Khoa is a great developer & problem solver and has been a great asset to our team.', link: 'https://www.linkedin.com/in/keiran-james-/' },
 	];
